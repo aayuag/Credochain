@@ -25,6 +25,8 @@ const SignUp = () => {
       alert("Please Enter Your Name")
     }else if(mobile===""){
       alert("Please Enter Your Mobile no.")
+    }else if(mobile.length>10 || mobile.length<10){
+      alert("Please Enter a valid number")
     }else if(address===""){
       alert("Please Enter Your Address")
     }else if(age===""){
@@ -41,7 +43,7 @@ const SignUp = () => {
   }
 
   const handleserver=()=>{
-    fetch("http://localhost:3001/user/signup", {
+    fetch("https://credogym-backend.herokuapp.com/user/signup", {
         method: "post",
         body: JSON.stringify({
             name,

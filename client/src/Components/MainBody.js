@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 
-const MainBody = (props) => {
+const MainBody = () => {
     let token =localStorage.getItem("authorization")
     const [userdetails,setUserdetails]=useState({})
     const [aerobicscount, setAerobicscount] = useState(0)
@@ -18,7 +18,7 @@ const MainBody = (props) => {
     
 
     useEffect( () => {
-        fetch("http://localhost:3001/user/details", {
+        fetch("https://credogym-backend.herokuapp.com/user/details", {
             headers: {
               authorization: token,
             },
@@ -37,7 +37,7 @@ const MainBody = (props) => {
           })
 
 
-         fetch("http://localhost:3001/course/cardiosize", {
+         fetch("https://credogym-backend.herokuapp.com/course/cardiosize", {
         })
             .then((res) => res.json())
             .then((data) => {
@@ -47,7 +47,7 @@ const MainBody = (props) => {
                     setShowcardio(false)
                 }
             })
-        fetch("http://localhost:3001/course/aerobicssize", {
+        fetch("https://credogym-backend.herokuapp.com/course/aerobicssize", {
         })
             .then((res) => res.json())
             .then((data) => {
@@ -57,7 +57,7 @@ const MainBody = (props) => {
                     setShowaerobics(false)
                 }
             })
-         fetch("http://localhost:3001/user/trainers", {
+         fetch("https://credogym-backend.herokuapp.com/user/trainers", {
         })
             .then((res) => res.json())
             .then((data) => {
@@ -65,7 +65,7 @@ const MainBody = (props) => {
                 setTrainers(data)
 
             })
-         fetch("http://localhost:3001/course/weightliftingsize", {
+         fetch("https://credogym-backend.herokuapp.com/course/weightliftingsize", {
         })
             .then((res) => res.json())
             .then((data) => {
@@ -93,7 +93,7 @@ const MainBody = (props) => {
     }
     
     const handleaerobicsbook=()=>{
-        fetch("http://localhost:3001/course/aerobicsbookslot", {
+        fetch("https://credogym-backend.herokuapp.com/course/aerobicsbookslot", {
         method: "post",
         body: JSON.stringify({
            username:userdetails.username,
@@ -110,7 +110,7 @@ const MainBody = (props) => {
     }
 
     const handlecardiobook=()=>{
-        fetch("http://localhost:3001/course/cardiobookslot", {
+        fetch("https://credogym-backend.herokuapp.com/course/cardiobookslot", {
         method: "post",
         body: JSON.stringify({
            username:userdetails.username,
@@ -127,7 +127,7 @@ const MainBody = (props) => {
     }
 
     const handleweightbook=()=>{
-        fetch("http://localhost:3001/course/cardiobookslot", {
+        fetch("https://credogym-backend.herokuapp.com/course/weightliftingbookslot", {
         method: "post",
         body: JSON.stringify({
            username:userdetails.username,

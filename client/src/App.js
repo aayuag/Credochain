@@ -5,6 +5,7 @@ import SignIn from './Components/SignIn'
 import FrontPage from './Components/FrontPage'
 import SignUp from './Components/SignUp'
 import Protected from './Components/Protected';
+import SignProtected from './Components/SignProtected';
 
 const App = () => {
   return (
@@ -14,8 +15,8 @@ const App = () => {
       
       <Route path="/" exact element={<FrontPage/>}></Route>
       <Route path="/dashboard" element={<Protected><Dashboard/></Protected>}></Route>
-      <Route path="/signup" element={<SignUp/>}></Route>
-      <Route path="/signin" element={<SignIn/>}></Route>
+      <Route path="/signup" element={ <SignProtected><SignUp/></SignProtected>  }></Route>
+      <Route path="/signin" element={ <SignProtected><SignIn/></SignProtected> }></Route>
 
      </Routes>
      </BrowserRouter>
