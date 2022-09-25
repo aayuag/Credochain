@@ -13,7 +13,7 @@ const App = () => {
     <BrowserRouter>
      <Routes>
       
-      <Route path="/" exact element={<FrontPage/>}></Route>
+      <Route path="/" exact element={<SignProtected><FrontPage/></SignProtected>}></Route>
       <Route path="/dashboard" element={<Protected><Dashboard/></Protected>}></Route>
       <Route path="/signup" element={ <SignProtected><SignUp/></SignProtected>  }></Route>
       <Route path="/signin" element={ <SignProtected><SignIn/></SignProtected> }></Route>
